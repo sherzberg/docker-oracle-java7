@@ -1,8 +1,8 @@
-FROM ubuntu:12.04
+FROM debian:wheezy
 
-RUN apt-get update
-RUN apt-get install -y python-software-properties software-properties-common
-RUN add-apt-repository ppa:webupd8team/java
+RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list
+RUN echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 RUN apt-get update
 
 # auto accept oracle jdk license
